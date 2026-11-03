@@ -41,4 +41,13 @@ public class CalculadoraDescontoTDDTest {
                 calculadora.calcular(
                         new BigDecimal("1200.00"), true));
     }
+    @Test
+    void deveCobrarFreteAbaixoDeCem() {
+        CalculadoraDescontoTDD calculadora =
+                new CalculadoraDescontoTDD();
+
+        assertEquals(new BigDecimal("95.00"),
+                calculadora.calcular(
+                        new BigDecimal("80.00"), false));
+    }
 }
