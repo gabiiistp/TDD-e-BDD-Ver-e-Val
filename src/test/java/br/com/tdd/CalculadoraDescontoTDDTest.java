@@ -14,4 +14,13 @@ public class CalculadoraDescontoTDDTest {
                 calculadora.calcular(
                         new BigDecimal("300.00"), false));
     }
+    @Test
+    void deveAplicarDezPorCentoAcimaDeQuinhentos() {
+        CalculadoraDescontoTDD calculadora =
+                new CalculadoraDescontoTDD();
+
+        assertEquals(new BigDecimal("540.00"),
+                calculadora.calcular(
+                        new BigDecimal("600.00"), false));
+    }
 }
