@@ -7,7 +7,9 @@ public class CalculadoraDescontoTDD {
     public BigDecimal calcular(BigDecimal valorItens, boolean clienteVip) {
         BigDecimal valor = valorItens;
 
-        if (valor.compareTo(new BigDecimal("500.00")) > 0) {
+        if (valor.compareTo(new BigDecimal("1000.00")) > 0) {
+            valor = valor.multiply(new BigDecimal("0.80"));
+        } else if (valor.compareTo(new BigDecimal("500.00")) > 0) {
             valor = valor.multiply(new BigDecimal("0.90"));
         }
 
