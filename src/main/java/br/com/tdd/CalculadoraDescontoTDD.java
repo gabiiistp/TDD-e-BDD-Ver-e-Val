@@ -23,10 +23,12 @@ public class CalculadoraDescontoTDD {
             throw new IllegalArgumentException(
                     "O valor total deve ser maior que zero.");
         }
-
         return valor.setScale(2, RoundingMode.HALF_UP);
     }
-
-
-
+    private BigDecimal aplicarDesconto(
+            BigDecimal valor, BigDecimal percentual) {
+        return valor.multiply(
+                        BigDecimal.ONE.subtract(percentual))
+                .setScale(2, RoundingMode.HALF_UP);
+    }
 }
