@@ -23,4 +23,13 @@ public class CalculadoraDescontoTDDTest {
                 calculadora.calcular(
                         new BigDecimal("600.00"), false));
     }
+    @Test
+    void deveAplicarVintePorCentoAcimaDeMil() {
+        CalculadoraDescontoTDD calculadora =
+                new CalculadoraDescontoTDD();
+
+        assertEquals(new BigDecimal("880.00"),
+                calculadora.calcular(
+                        new BigDecimal("1100.00"), false));
+    }
 }
