@@ -3,6 +3,7 @@ package br.com.tdd;
 import org.junit.jupiter.api.Test;
 import java.math.BigDecimal;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class CalculadoraDescontoTDDTest {
     @Test
@@ -49,5 +50,24 @@ public class CalculadoraDescontoTDDTest {
         assertEquals(new BigDecimal("95.00"),
                 calculadora.calcular(
                         new BigDecimal("80.00"), false));
+    }
+    @Test
+    void deveRejeitarValorZero() {
+        CalculadoraDescontoTDD calculadora =
+                new CalculadoraDescontoTDD();
+
+        assertThrows(IllegalArgumentException.class,
+                () -> calculadora.calcular(
+                        new BigDecimal("0.00"), false));
+    }
+
+    @Test
+    void deveRejeitarValorNegativo() {
+        CalculadoraDescontoTDD calculadora =
+                new CalculadoraDescontoTDD();
+
+        assertThrows(IllegalArgumentException.class,
+                () -> calculadora.calcular(
+                        new BigDecimal("-10.00"), false));
     }
 }
