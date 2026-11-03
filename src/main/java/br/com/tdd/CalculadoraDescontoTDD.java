@@ -18,6 +18,11 @@ public class CalculadoraDescontoTDD {
         if (valor.compareTo(new BigDecimal("100.00")) < 0) {
             valor = valor.add(new BigDecimal("15.00"));
         }
+        if (valorItens == null ||
+                valorItens.compareTo(BigDecimal.ZERO) <= 0) {
+            throw new IllegalArgumentException(
+                    "O valor total deve ser maior que zero.");
+        }
 
         return valor.setScale(2, RoundingMode.HALF_UP);
     }
