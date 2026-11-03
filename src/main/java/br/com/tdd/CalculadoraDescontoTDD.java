@@ -12,6 +12,9 @@ public class CalculadoraDescontoTDD {
         } else if (valor.compareTo(new BigDecimal("500.00")) > 0) {
             valor = valor.multiply(new BigDecimal("0.90"));
         }
+        if (clienteVip) {
+            valor = valor.multiply(new BigDecimal("0.95"));
+        }
 
         return valor.setScale(2, RoundingMode.HALF_UP);
     }
