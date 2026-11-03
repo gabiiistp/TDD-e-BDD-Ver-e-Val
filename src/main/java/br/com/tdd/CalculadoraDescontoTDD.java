@@ -5,6 +5,15 @@ import java.math.RoundingMode;
 public class CalculadoraDescontoTDD {
 
     public BigDecimal calcular(BigDecimal valorItens, boolean clienteVip) {
-        return valorItens.setScale(2, RoundingMode.HALF_UP);
+        BigDecimal valor = valorItens;
+
+        if (valor.compareTo(new BigDecimal("500.00")) > 0) {
+            valor = valor.multiply(new BigDecimal("0.90"));
+        }
+
+        return valor.setScale(2, RoundingMode.HALF_UP);
     }
+
+
+
 }
